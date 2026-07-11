@@ -6,8 +6,8 @@ using UnityEngine;
 public class UnitGradeData : DefinitionBase
 {
     [SerializeField] private UnitGrade gradeType;
-    [SerializeField] private int defalutBuyPrice;
+    [SerializeField] private int buyPrice;
 
     public UnitGrade GradeType => gradeType;
-    public int DefalutBuyPrice => defalutBuyPrice;
+    public int DefalutBuyPrice => buyPrice;
 }

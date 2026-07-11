@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78ac5c0f2cefd6468fa6770de5eac3a, type: 3}
+  m_Name: StarLight
+  m_EditorClassIdentifier: 
+  entityId: 10001
+  entityName: "\uC2A4\uD0C0\uB77C\uC774\uD2B8"
+  desc: 
+  lore: 
+  portrait: {fileID: 0}
+  icon: {fileID: 0}
+  jobData: {fileID: 11400000, guid: ad46f52583ec298429fb37773ce75ceb, type: 2}
+  positionData: {fileID: 11400000, guid: 9535a609769d1974ba7c49e2bf9bf090, type: 2}
+  attackRangeData: {fileID: 11400000, guid: eb83357b57e88f741b4e16521b6ddd39, type: 2}
+  supportRangeData: {fileID: 11400000, guid: a429db38fc60d914d939119ce3a7ae49, type: 2}
+  attributeData: {fileID: 11400000, guid: 7f2ac3b8f49248b4eb3c9951b8e0a20c, type: 2}
+  damageFormulaData: {fileID: 11400000, guid: 05229645b06d6384282828e544b7ca1c, type: 2}
+  abilityActionData: {fileID: 11400000, guid: 74ddf6aefef4e424bbd0be7d9b71807d, type: 2}
+  basicAttackAreaData: {fileID: 11400000, guid: 9c42b5b5a6318bd45ad95634ee58c538, type: 2}
+  targetPriorityData: {fileID: 11400000, guid: c1cc0b486e3a30a42be59cdda14b6311, type: 2}
+  baseStats:
+    stats:
+    - statType: 0
+      value: 1
+    - statType: 1
+      value: 1
+    - statType: 2
+      value: 1
+    - statType: 3
+      value: 1
+    - statType: 4
+      value: 1
+    - statType: 5
+      value: 1
+    - statType: 6
+      value: 1
+    - statType: 7
+      value: 1
+    - statType: 8
+      value: 1
+    - statType: 9
+      value: 1
+    - statType: 10
+      value: 1
+    - statType: 11
+      value: 1
+    - statType: 12
+      value: 1
+    - statType: 13
+      value: 1
+    - statType: 14
+      value: 1
+  attributeDefenseProfile:
+    resistances:
+    - {fileID: 11400000, guid: 771e4f253389cd04d848a089ef69782d, type: 2}
+    - {fileID: 11400000, guid: b2c8fa917816c4b48b641d15f49771ec, type: 2}
+    - {fileID: 11400000, guid: 4253e1b9eb6ccc94c9b59b5c10b6d65d, type: 2}
+    weaknesses:
+    - {fileID: 11400000, guid: c720a3813ab7ceb4789470bc92b15b8d, type: 2}
+    - {fileID: 11400000, guid: 7f2ac3b8f49248b4eb3c9951b8e0a20c, type: 2}
+    - {fileID: 11400000, guid: 43cec77f31b20f74b80213aeeb244b33, type: 2}
+    resistanceReductionRate: 0.5
+    weaknessBonusRate: 0.5
+  prefab: {fileID: 0}
+  unitGradeData: {fileID: 0}
+  maxLevel: 15
+  defaultUnlocked: 0
+  levelTable: []

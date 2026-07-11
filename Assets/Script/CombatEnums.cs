@@ -20,12 +20,12 @@ public enum AttackRangeType
 
 public enum SupportRangeType
 {
-    None, FrontOnly, MiddleOnly, BackOnly, FrontMiddle, AllAllies
+    None, FrontOnly, MiddleOnly, BackOnly, AllAllies
 }
 
 public enum AttributeType
 {
-    Fixed, Fire, Water, Natura, Electro, Ice, Wind, Poison, Light, Darkness
+    Fixed, Fire, Water, Nature, Electro, Ice, Wind, Poison, Light, Darkness
 }
 
 public enum UnitGrade
@@ -40,5 +40,30 @@ public enum ActionType
 
 public enum DamageFormulaType
 {
-    DamagePower, TargetMaxHp, TargetCurrentHp, TargetMissingHp, SelfMaxHp, Fixed
+    BaseDamage, TargetMaxHp, TargetCurrentHp, TargetMissingHp, SelfMaxHp, Fixed
+}
+
+public enum TargetPriorityType
+{
+    LowestHp, HighestHp, LowestHpRate, HighestHpRate, HighestDefense, HighestBaseDamage, Random
+}
+
+public enum BasicAttackAreaType
+{
+    Single, Multi
+}
+
+public enum AbilityActionType
+{
+    None, CooldownOnly, ManaOnly
+}
+
+public enum CombatOptionType
+{
+    CanBasicAttack, CanBeTargeted, CanReceiveHeal, CanReceiveBuff, CanReceiveDebuff, UseTargetOverride, CanTakeDamage, IsInvincible
+}
+
+public enum StatusType
+{
+    Stun, Silence, Charm, Taunt, Poisoning
 }
