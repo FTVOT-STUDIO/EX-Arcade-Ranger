@@ -58,3 +58,7 @@ Desktop.ini
 Key/
 .env
 .env.*
+
+# Unity Plugins 폴더 제외
+/Assets/Plugins/
+/Assets/Plugins.meta
