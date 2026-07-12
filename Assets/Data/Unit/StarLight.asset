@@ -30,23 +30,23 @@ MonoBehaviour:
   baseStats:
     stats:
     - statType: 0
-      value: 1
+      value: 5
     - statType: 1
-      value: 1
+      value: 30
     - statType: 2
-      value: 1
+      value: 30
     - statType: 3
-      value: 1
+      value: 5
     - statType: 4
-      value: 1
+      value: 3
     - statType: 5
-      value: 1
+      value: 100
     - statType: 6
-      value: 1
+      value: 3
     - statType: 7
-      value: 1
+      value: 30
     - statType: 8
-      value: 1
+      value: 120
     - statType: 9
       value: 1
     - statType: 10
@@ -71,7 +71,34 @@ MonoBehaviour:
     resistanceReductionRate: 0.5
     weaknessBonusRate: 0.5
   prefab: {fileID: 0}
-  unitGradeData: {fileID: 0}
-  maxLevel: 15
+  unitGradeData: {fileID: 11400000, guid: 6b15e1d07ffe4364891ce4095e32306a, type: 2}
   defaultUnlocked: 0
-  levelTable: []
+  levelStatIncreases:
+  - levelLabel: Lv 2
+    statIncreases:
+    - statType: 0
+      increaseValue: 30
+  - levelLabel: Lv 3
+    statIncreases:
+    - statType: 0
+      increaseValue: 30
+    - statType: 1
+      increaseValue: 50
+  - levelLabel: Lv 4
+    statIncreases:
+    - statType: 8
+      increaseValue: 50
+  - levelLabel: Lv 5
+    statIncreases:
+    - statType: 9
+      increaseValue: 3
+  - levelLabel: Lv 6
+    statIncreases: []
+  - levelLabel: Lv 7
+    statIncreases: []
+  - levelLabel: Lv 8
+    statIncreases: []
+  - levelLabel: Lv 9
+    statIncreases: []
+  - levelLabel: Lv 10
+    statIncreases: []

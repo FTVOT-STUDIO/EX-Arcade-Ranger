@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class RuntimeStats
 {
-    private readonly Dictionary<StatType, float> baseStats = new Dictionary<StatType, float>();
-    private readonly Dictionary<StatType, float> flatModifiers = new Dictionary<StatType, float>();
-    private readonly Dictionary<StatType, float> percentModifiers = new Dictionary<StatType, float>();
+    private readonly Dictionary<StatType, float> baseStats = new();
+    private readonly Dictionary<StatType, float> flatModifiers = new();
+    private readonly Dictionary<StatType, float> percentModifiers = new();
+
+    public IReadOnlyDictionary<StatType, float> BaseStats => baseStats;
+    public IReadOnlyDictionary<StatType, float> FlatModifiers => flatModifiers;
+    public IReadOnlyDictionary<StatType, float> PercentModifiers => percentModifiers;
 
     public RuntimeStats(StatSet statSet)
     {

@@ -16,4 +16,27 @@ MonoBehaviour:
   icon: {fileID: 0}
   desc: 
   gradeType: 3
-  buyPrice: 4
+  battleShopPrice: 0
+  lobbyShopPrice: 0
+  maxLevel: 10
+  levelUpRequirements:
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0
+  - requiredFragments: 0
+    goldCost: 0

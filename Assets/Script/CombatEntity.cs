@@ -59,12 +59,12 @@ public class CombatEntity : MonoBehaviour
         entityData = data;
         teamType = team;
 
-        Stats = new RuntimeStats(entityData.baseStats);
-
         if (entityData is UnitData unitData)
         {
-            StatSet levelBonusStats = unitData.GetLevelBonusStats(unitLevel);
-            Stats.AddFlatModifiers(levelBonusStats);
+            // StatSet set = unitData.GetStatsAtLevel(4);
+            StatSet leveledBaseStats = unitData.GetStatsAtLevel(4);
+            Stats = new RuntimeStats(leveledBaseStats);
+            // Stats.AddFlatModifiers(levelBonusStats);
         }
 
         if (entityData is EnemyData enemyData)
@@ -75,6 +75,7 @@ public class CombatEntity : MonoBehaviour
         CurrentHp = Stats.GetValue(StatType.MaxHp);
         CurrentShield = Stats.GetValue(StatType.MaxShield);
         CurrentMana = 0f;
+        Debug.Log(Stats.GetValue(StatType.BaseDamage));
     }
 
     public void TakeDamage(float finalDamage)
