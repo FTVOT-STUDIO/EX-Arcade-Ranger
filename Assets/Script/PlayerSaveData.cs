@@ -8,39 +8,39 @@ public class PlayerSaveData
     [SerializeField] private int saveVersion = 1;
     [SerializeField] private int gold;
     [SerializeField] private int gem;
-    [SerializeField] private List<UnitProgressData> unitProgressList = new List<UnitProgressData>();
+    [SerializeField] private List<UnitGrowthData> unitGrowthList = new List<UnitGrowthData>();
 
     [System.NonSerialized]
-    private Dictionary<string, UnitProgressData> unitProgressLookup;
+    private Dictionary<string, UnitGrowthData> unitProgressLookup;
 
     public int SaveVersion => saveVersion;
     public int Gold => gold;
     public int Gem => gem;
-    public IReadOnlyList<UnitProgressData> UnitProgressList => unitProgressList;
+    public IReadOnlyList<UnitGrowthData> UnitGrowthList => unitGrowthList;
 
     public void InitializeRuntimeData()
     {
-        if (unitProgressList == null)
+        if (unitGrowthList == null)
         {
-            unitProgressList = new List<UnitProgressData>();
+            unitGrowthList = new List<UnitGrowthData>();
         }
 
-        unitProgressLookup = new Dictionary<string, UnitProgressData>();
+        unitProgressLookup = new Dictionary<string, UnitGrowthData>();
 
-        foreach (UnitProgressData progressData in unitProgressList)
+        foreach (UnitGrowthData unitGrowthData in unitGrowthList)
         {
-            if (progressData == null || string.IsNullOrWhiteSpace(progressData.UnitId))
+            if (unitGrowthData == null || string.IsNullOrWhiteSpace(unitGrowthData.UnitId))
             {
                 continue;
             }
 
-            if (unitProgressLookup.ContainsKey(progressData.UnitId))
+            if (unitProgressLookup.ContainsKey(unitGrowthData.UnitId))
             {
-                Debug.LogWarning($"중복된 유닛 저장 데이터가 있습니다: {progressData.UnitId}");
+                Debug.LogWarning($"중복된 유닛 저장 데이터가 있습니다: {unitGrowthData.UnitId}");
                 continue;
             }
 
-            unitProgressLookup.Add(progressData.UnitId, progressData);
+            unitProgressLookup.Add(unitGrowthData.UnitId, unitGrowthData);
         }
     }
 
@@ -55,43 +55,43 @@ public class PlayerSaveData
                 continue;
             }
 
-            if (unitProgressLookup.TryGetValue(unitData.entityId, out UnitProgressData progressData))
+            if (unitProgressLookup.TryGetValue(unitData.entityId, out UnitGrowthData unitGrowthData))
             {
-                progressData.Validate(unitData);
+                unitGrowthData.Validate(unitData);
                 continue;
             }
 
-            UnitProgressData newProgressData = new UnitProgressData(unitData);
+            UnitGrowthData newProgressData = new UnitGrowthData(unitData);
 
-            unitProgressList.Add(newProgressData);
+            unitGrowthList.Add(newProgressData);
 
             unitProgressLookup.Add(unitData.entityId, newProgressData);
         }
     }
 
-    public UnitProgressData GetOrCreateUnitProgress(UnitData unitData)
+    public UnitGrowthData GetOrCreateUnitGrowth(UnitData unitData)
     {
         EnsureLookup();
 
-        if (unitProgressLookup.TryGetValue(unitData.entityId, out UnitProgressData progressData))
+        if (unitProgressLookup.TryGetValue(unitData.entityId, out UnitGrowthData unitGrowthData))
         {
-            progressData.Validate(unitData);
-            return progressData;
+            unitGrowthData.Validate(unitData);
+            return unitGrowthData;
         }
 
-        progressData = new UnitProgressData(unitData);
+        unitGrowthData = new UnitGrowthData(unitData);
 
-        unitProgressList.Add(progressData);
-        unitProgressLookup.Add(unitData.entityId, progressData);
+        unitGrowthList.Add(unitGrowthData);
+        unitProgressLookup.Add(unitData.entityId, unitGrowthData);
 
-        return progressData;
+        return unitGrowthData;
     }
 
-    public bool TryGetUnitProgress(string unitId, out UnitProgressData progressData)
+    public bool TryGetUnitProgress(string unitId, out UnitGrowthData unitGrowthData)
     {
         EnsureLookup();
 
-        return unitProgressLookup.TryGetValue(unitId, out progressData);
+        return unitProgressLookup.TryGetValue(unitId, out unitGrowthData);
     }
 
     public void AddGold(int amount)
@@ -134,20 +134,20 @@ public class PlayerSaveData
 
     public void AddUnitFragments(UnitData unitData, int amount)
     {
-        UnitProgressData progressData = GetOrCreateUnitProgress(unitData);
-        progressData.AddFragments(unitData, amount);
+        UnitGrowthData unitGrowthData = GetOrCreateUnitGrowth(unitData);
+        unitGrowthData.AddFragments(unitData, amount);
     }
 
     public bool TryLevelUpUnit(UnitData unitData)
     {
-        UnitProgressData progressData = GetOrCreateUnitProgress(unitData);
-        return progressData.TryLevelUp(unitData, ref gold);
+        UnitGrowthData unitGrowthData = GetOrCreateUnitGrowth(unitData);
+        return unitGrowthData.TryLevelUp(unitData, ref gold);
     }
 
     public void UnlockUnit(UnitData unitData)
     {
-        UnitProgressData progressData = GetOrCreateUnitProgress(unitData);
-        progressData.Unlock();
+        UnitGrowthData unitGrowthData = GetOrCreateUnitGrowth(unitData);
+        unitGrowthData.Unlock();
     }
 
     private void EnsureLookup()

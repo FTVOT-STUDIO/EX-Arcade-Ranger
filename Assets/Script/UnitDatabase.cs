@@ -17,6 +17,11 @@ public class UnitDatabase : ScriptableObject
 
         foreach (UnitData unitData in units)
         {
+            if (unitLookup.ContainsKey(unitData.entityId))
+            {
+                Debug.LogError($"중복된 유닛 ID입니다: {unitData.entityId}", unitData);
+                continue;
+            }
             unitLookup.Add(unitData.entityId, unitData);
         }
     }

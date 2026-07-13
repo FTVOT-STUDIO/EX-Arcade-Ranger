@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class UnitProgressData
+public class UnitGrowthData
 {
     [SerializeField] private string unitId;
     [SerializeField] private string unitName;
@@ -19,7 +19,7 @@ public class UnitProgressData
     public int OverflowFragments => overflowFragments;
     public bool Unlocked => unlocked;
 
-    public UnitProgressData(UnitData unitData)
+    public UnitGrowthData(UnitData unitData)
     {
         unitId = unitData.entityId;
         unitName = unitData.entityName;
