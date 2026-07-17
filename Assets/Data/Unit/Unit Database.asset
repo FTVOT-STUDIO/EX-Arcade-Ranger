@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af63d2f20eaf15140a6c0a6cf3fc637a, type: 3}
   m_Name: Unit Database
   m_EditorClassIdentifier: 
-  units:
+  dataList:
   - {fileID: 11400000, guid: 432260aa95747f24e845a0f48de19756, type: 2}

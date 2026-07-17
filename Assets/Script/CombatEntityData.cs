@@ -3,17 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CombatEntityData : ScriptableObject
+public abstract class CombatEntityData : DefinitionBase
 {
-    public string entityId;
-    public string entityName;
-
-    public string desc;
     public string lore;
-
     public Sprite portrait;
-    public Sprite icon;
-
     public JobData jobData;
     public PositionData positionData;
     public AttackRangeData attackRangeData;

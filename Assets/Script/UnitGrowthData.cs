@@ -21,8 +21,8 @@ public class UnitGrowthData
 
     public UnitGrowthData(UnitData unitData)
     {
-        unitId = unitData.entityId;
-        unitName = unitData.entityName;
+        unitId = unitData.DataId;
+        unitName = unitData.DataName;
         level = 1;
         currentFragments = 0;
         overflowFragments = 0;
@@ -94,8 +94,9 @@ public class UnitGrowthData
         return true;
     }
 
-    public void Validate(UnitData unitData)
+    public void Normalize(UnitData unitData)
     {
+        unitName = unitData.DataName;
         level = Mathf.Clamp(level, 1, unitData.UnitGradeData.MaxLevel);
         currentFragments = Mathf.Max(0, currentFragments);
         overflowFragments = Mathf.Max(0, overflowFragments);

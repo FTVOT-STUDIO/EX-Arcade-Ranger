@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78ac5c0f2cefd6468fa6770de5eac3a, type: 3}
   m_Name: StarLight
   m_EditorClassIdentifier: 
-  entityId: 10001
-  entityName: "\uC2A4\uD0C0\uB77C\uC774\uD2B8"
+  dataName: "\uC1FC\uD06C\uBE44\uD2B8"
+  dataId: 10001
+  icon: {fileID: 0}
   desc: 
   lore: 
   portrait: {fileID: 0}
-  icon: {fileID: 0}
   jobData: {fileID: 11400000, guid: ad46f52583ec298429fb37773ce75ceb, type: 2}
   positionData: {fileID: 11400000, guid: 9535a609769d1974ba7c49e2bf9bf090, type: 2}
   attackRangeData: {fileID: 11400000, guid: eb83357b57e88f741b4e16521b6ddd39, type: 2}

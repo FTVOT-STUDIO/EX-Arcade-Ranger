@@ -48,16 +48,16 @@ public class PlayerSaveData
     {
         EnsureLookup();
 
-        foreach (UnitData unitData in unitDatabase.Units)
+        foreach (UnitData unitData in unitDatabase.DataList)
         {
             if (unitData == null)
             {
                 continue;
             }
 
-            if (unitProgressLookup.TryGetValue(unitData.entityId, out UnitGrowthData unitGrowthData))
+            if (unitProgressLookup.TryGetValue(unitData.DataId, out UnitGrowthData unitGrowthData))
             {
-                unitGrowthData.Validate(unitData);
+                unitGrowthData.Normalize(unitData);
                 continue;
             }
 
@@ -65,7 +65,7 @@ public class PlayerSaveData
 
             unitGrowthList.Add(newProgressData);
 
-            unitProgressLookup.Add(unitData.entityId, newProgressData);
+            unitProgressLookup.Add(unitData.DataId, newProgressData);
         }
     }
 
@@ -73,16 +73,16 @@ public class PlayerSaveData
     {
         EnsureLookup();
 
-        if (unitProgressLookup.TryGetValue(unitData.entityId, out UnitGrowthData unitGrowthData))
+        if (unitProgressLookup.TryGetValue(unitData.DataId, out UnitGrowthData unitGrowthData))
         {
-            unitGrowthData.Validate(unitData);
+            unitGrowthData.Normalize(unitData);
             return unitGrowthData;
         }
 
         unitGrowthData = new UnitGrowthData(unitData);
 
         unitGrowthList.Add(unitGrowthData);
-        unitProgressLookup.Add(unitData.entityId, unitGrowthData);
+        unitProgressLookup.Add(unitData.DataId, unitGrowthData);
 
         return unitGrowthData;
     }
