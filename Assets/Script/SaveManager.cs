@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : SingletonBase<SaveManager>
 {
-    public static SaveManager Instance { get; private set; }
     [SerializeField] private UnitDatabase unitDatabase;
     [SerializeField] private string saveFileName = "player_save.json";
     [SerializeField] private PlayerSaveData currentSaveData;
@@ -15,17 +14,8 @@ public class SaveManager : MonoBehaviour
 
     private string SavePath => Path.Combine(Application.persistentDataPath, saveFileName);
 
-    void Awake()
+    protected override void Initialize()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
         unitDatabase.Initialize();
 
         LoadGame();
